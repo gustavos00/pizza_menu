@@ -18,9 +18,8 @@ pizzaJson.map((item, index) => {
     //--- Quando clicar na pizza ---
     pizzaItem.querySelector('a').addEventListener("click", (e) => {
         e.preventDefault(); //Cancelar o reload da página.
-        pizzaAmount = 1 //Reseta o valor da quantidade de pizzas.Meu 
-
-
+        pizzaAmount = 1 //Reseta o valor da quantidade de pizzas
+        
         let pizzaModal = qs('.pizzaWindowArea')
         let pizzaModalContent = pizzaModal.querySelector('.pizzaInfo') //variavel que guarda o HTML do conteudo no Modal.
         let pizzaModalPrice = pizzaModalContent.querySelector('.pizzaInfo--pricearea') //variavel que guarda o HTML da parte do Preço no Modal.
@@ -54,7 +53,6 @@ pizzaJson.map((item, index) => {
     qs('.pizza-area').append(pizzaItem)
 });
 
-
 //Eventos do Modal.
 function closeModal() {
     let pizzaModal = qs('.pizzaWindowArea');
@@ -65,7 +63,6 @@ function closeModal() {
     }, 200)
 }
 
-    
 qsa('.pizzaInfo--cancelButton, .pizzaInfo--cancelMobileButton').forEach((item) => { //Para os botões de fechar o modal.
     item.addEventListener("click", () => {
         closeModal()
@@ -91,3 +88,112 @@ qs(".pizzaInfo--qtmais").addEventListener("click", () => {//Para os botões de a
     qs('.pizzaInfo--qt').innerHTML = pizzaAmount
 })
 
+// ---- Sistema do carrinho ----
+
+qs(".pizzaInfo--addButton").addEventListener("click", () => { //Adicionar ao carrinho.
+    //modalKey = Qual pizza
+    //pizzaSize = Tamanho da pizza
+    //pizzaAmount = Quantidade de pizzas
+    let pizzaSize = parseInt(qs(".pizzaInfo--size.selected").getAttribute('data-key'));
+    let identifier = pizzaJson[modalKey].id + '@' + pizzaSize;
+    let key = cart.findIndex(item => item.identifier == identifier);
+
+    if(key > -1) {
+        cart[key].amount += pizzaAmount
+    } else {
+        cart.push({
+            identifier: identifier,
+            id: pizzaJson[modalKey].id,
+            size: pizzaSize,
+            amount: pizzaAmount
+        })
+    }
+
+    updateCar();
+    closeModal();
+
+})
+
+function updateCar() {
+    qs('header .menu-openner span').innerHTML = cart.length
+
+    if (cart.length > 0) {
+        qs('.cart').innerHTML = ''; //Dá reset ao HTML do carrinho.
+
+        let subtotal = 0;
+        let discount = 0;
+        let total = 0;
+
+        for(let i in cart){
+            let pizzaItem = pizzaJson.find(item => item.id == cart[i].id)
+            let cartItem = qs('.models .cart--item').cloneNode(true);
+            let pizzaSizeName;
+
+            subtotal += Math.round(pizzaItem.price * cart[i].amount) //Arredonda os valores para evitar números grandes.
+
+            switch(cart[i].size) { //Determina, em string, o tamanho da pizza.
+                case 0:
+                    pizzaSizeName = "Pequena";
+                    break;
+                case 1:
+                    pizzaSizeName = "Média";
+                    break;
+                case 2:
+                    pizzaSizeName = "Grande";
+                    break;
+                default: 
+                    pizzaSizeName = "Ocorreu um problema."
+            }
+
+            cartItem.querySelector('img').src = pizzaItem.img //Altera a IMG
+            cartItem.querySelector('.cart--item-nome').innerHTML = `${pizzaItem.name} - ${pizzaSizeName}` //Mostra o nome + tamanho da pizza
+            cartItem.querySelector('.cart--item--qt').innerHTML = cart[i].amount
+            cartItem.querySelector('.cart--item-qtmenos').addEventListener("click", () => { //Listener do botão de diminuir quantidade
+                if(cart[i].amount > 1) {
+                    cart[i].amount--;
+                } else {
+                    cart.splice(i, 1)
+                }
+                updateCar()
+            })
+
+            cartItem.querySelector('.cart--item-qtmais').addEventListener("click", () => { //Listener do botão de adicionar quantidade
+                cart[i].amount++;
+                updateCar()
+            })
+
+            qs('.cart').append(cartItem)
+        }
+
+        discount = Math.round(subtotal * 0.1) //Arredonda os valores para evitar números grandes.
+        total = subtotal - discount
+
+        qs('.subtotal span:last-child').innerHTML = `${subtotal.toFixed(2)}€`//Atribui 2 casas decimais aos valores.
+        qs('.desconto span:last-child').innerHTML = `${discount.toFixed(2)}€`
+        qs('.total span:last-child').innerHTML = `${total.toFixed(2)}€`
+
+        qs('aside').classList.add("show")
+    } else {
+        qs('aside').classList.remove("show")
+        qs('aside').style.left = '100vw'
+    }
+    
+}
+
+// ---- Sistema do carrinho Mobile ----
+
+qs('header .menu-openner').addEventListener("click", () => {
+    if(cart.length != 0) {
+        qs('aside').style.left = '0'
+    }
+})
+
+qs('.menu-closer').addEventListener("click", () => {
+    qs('aside').style.left = '100vw'
+})
+
+// Alerta ao clicar no botão de finalizar compra 
+
+qs('aside .cart--area .cart--details .cart--finalizar').addEventListener("click", () => {
+    alert("Gostaria que fosse tudo verdade e que tivesse você como cliente 😞")
+})
