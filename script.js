@@ -1,6 +1,9 @@
 const qs = (el) => document.querySelector(el);
 const qsa = (el) => document.querySelectorAll(el)
-let pizzaAmount = 1;
+
+let pizzaAmount = 1; //Quantidade de pizzas do modal.
+let cart = [] //Carrinho de compras.
+let modalKey
 
 //Lista das pizzas
 pizzaJson.map((item, index) => {
@@ -17,10 +20,12 @@ pizzaJson.map((item, index) => {
         e.preventDefault(); //Cancelar o reload da página.
         pizzaAmount = 1 //Reseta o valor da quantidade de pizzas.Meu 
 
+
         let pizzaModal = qs('.pizzaWindowArea')
         let pizzaModalContent = pizzaModal.querySelector('.pizzaInfo') //variavel que guarda o HTML do conteudo no Modal.
         let pizzaModalPrice = pizzaModalContent.querySelector('.pizzaInfo--pricearea') //variavel que guarda o HTML da parte do Preço no Modal.
         let key = e.target.closest('.pizza-item').getAttribute('data-key') //Irá procurar o elemento mais proximo com a tag "pizza-item"
+        modalKey = key
 
         //Colocação do conteudo do modal
         pizzaModalContent.querySelector('.pizzaInfo--desc').innerHTML = pizzaJson[key].description
@@ -56,14 +61,13 @@ function closeModal() {
     let pizzaModal = qs('.pizzaWindowArea');
     pizzaModal.style.opacity = 0;
 
-    setTimeout(() => {
-        pizzaModal.style.display = 'block';
-    }, 30)
 }
 
     
 qsa('.pizzaInfo--cancelButton, .pizzaInfo--cancelMobileButton').forEach((item) => { //Para os botões de fechar o modal.
-    item.addEventListener("click", closeModal)
+    item.addEventListener("click", () => {
+        closeModal()
+    })
 })
 
 qsa('.pizzaInfo--size').forEach((size) => { //Para os botões de fechar o modal.
@@ -77,9 +81,7 @@ qs(".pizzaInfo--qtmenos").addEventListener("click", () => {//Para os botões de 
     if (pizzaAmount > 1) {
         pizzaAmount--
         qs('.pizzaInfo--qt').innerHTML = pizzaAmount 
-    } else {
-            alert("Comprar menos de uma pizza? Díficil...")
-    }
+    } 
 })
 
 qs(".pizzaInfo--qtmais").addEventListener("click", () => {//Para os botões de aumentar a quantidade de pizzas
@@ -87,3 +89,8 @@ qs(".pizzaInfo--qtmais").addEventListener("click", () => {//Para os botões de a
     qs('.pizzaInfo--qt').innerHTML = pizzaAmount
 })
 
+// ---- Sistema do carrinho  ---- 
+
+/* qs(".pizzaInfo--addButton").addEventListener("click", () => {
+    closeModal()
+}) */
