@@ -142,6 +142,7 @@ h1 {
     display:flex;
     margin:20px 0px;
 }
+pizzaInfo--cancelMobileButton
 .pizzaBig {
     flex:1;
     display:flex;
@@ -260,6 +261,8 @@ h1 {
     text-align:center;
     line-height: 40px;
     margin-bottom:30px;
+    background: red;
+    color: white;
 }
 .cart {
     margin-bottom:20px;

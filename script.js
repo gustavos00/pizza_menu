@@ -60,7 +60,6 @@ pizzaJson.map((item, index) => {
 function closeModal() {
     let pizzaModal = qs('.pizzaWindowArea');
     pizzaModal.style.opacity = 0;
-
 }
 
     
@@ -88,9 +87,3 @@ qs(".pizzaInfo--qtmais").addEventListener("click", () => {//Para os botões de a
     pizzaAmount++
     qs('.pizzaInfo--qt').innerHTML = pizzaAmount
 })
-
-// ---- Sistema do carrinho  ---- 
-
-/* qs(".pizzaInfo--addButton").addEventListener("click", () => {
-    closeModal()
-}) */
