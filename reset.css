@@ -1,13 +1,41 @@
 * {
     box-sizing: border-box;
     padding: 0;
-    align-items: 0;
-    font-family: var(--raleway)
+    margin: 0;
+
+    font-family: var(--raleway);
+    color: var(--text-color);
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+
+    background: var(--main-bg);
+}
+
+.dark-mode:root {
+    --main-bg: #222831;
+    --text-color: #e8e8e8;
+    --left-aside-bg: #30475e;
+    --border-color: #e8e8e8;
+    --text-color-dark: #30475e;
 }
 
 :root {
     --lora: 'Lora', serif;
     --raleway: 'Raleway', sans-serif;
+
+    --main-bg: #e8e8e8;
+    --text-color: #222831;
+    --left-aside-bg: #e8e8e8;
+    --border-color: #222831;
+/* 
+    lite-gray: #e8e8e8;
+    dark-blue: #222831;
+    blue: #30475e;
+    red: #f05454;
+    black: black; */
 }
 
 .flex {

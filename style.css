@@ -1,14 +1,12 @@
-
-
 main {
     width: 100%;
 
     flex-direction: column;
-    justify-content: center;
     align-items: center;
 }
 
 main h1 {
+    margin: 2rem;
     text-transform: uppercase;
     letter-spacing: 10px;
 }
@@ -29,8 +27,8 @@ main .content {
 
     opacity: .5;
 
-    background: #ebebeb;
-    border: 2px solid black;
+    background: var(--left-aside-bg);
+    border: 2px solid var(--border-color);
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
 
@@ -38,10 +36,13 @@ main .content {
 }
 
 .left-menu-content {
+    width: 400px;
+    height: 80vh;
     position: relative;
 
+    display: flex;
     flex-direction: column;
-    align-content: space-around;
+    justify-content: space-around;
     align-items: center;
 }
 
@@ -49,31 +50,49 @@ main .content {
     width: 80px;
     height: 50px;
     content: 'Carrinho';
-    color: black;
+    color: var(--black);
 
     display: flex;
     justify-content: center;
     align-items: center;
 
     position: absolute;
-    right: -82px;
+    right: -78px;
     top: -2px;
 
-    background: #ebebeb;
-    border-top: 2px solid black;
-    border-right: 2px solid black;
-    border-bottom: 2px solid black;
+    background: var(--left-aside-bg);
+    border-top: 2px solid var(--border-color);
+    border-right: 2px solid var(--border-color);
+    border-bottom: 2px solid var(--border-color);
     border-radius: 0 5px 5px 0;
 }
 
 .dark-mode {
-    border: 1px solid red;
     height: 5vh;
     width: 300px;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.dark-mode button {
+    width: 150px;
+    height: 25px;
+
+    color: var(--text-color-dark);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+
+    background: #cccccc;
+    border-radius: 5px;
+    border: 1px solid #bebebe;
+    cursor: pointer;
+
+    outline: none;
 }
 
 .cart-content {
-    border: 1px solid red;
-    width: 300px;
-    height: 70vh
+    width: 320px;
+    height: 65vh;
 }
+
