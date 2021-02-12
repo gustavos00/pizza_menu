@@ -24,5 +24,22 @@ const darkMode = document.querySelector('#darkModeBtn')
 
 darkMode.addEventListener('click', () => {
     document.documentElement.classList.toggle('dark-mode')
-    alert("a")
+})
+
+
+/* --- Products List ---*/
+
+const qa = (el) => document.querySelector(el);
+const qsa = (el) => document.querySelector(el);
+
+pizzaJson.map((item, index) => {
+    let pizzaItem = document.querySelector('.models .pizza-item').cloneNode(true);
+
+    pizzaItem.setAttribute('data-key', index);
+    pizzaItem.querySelector('.pizza-price').innerHTML = `${item.price.toFixed(2)}€`
+    pizzaItem.querySelector('.pizza-img img').src = item.img
+    pizzaItem.querySelector('.pizza-name').innerHTML = item.name;
+    pizzaItem.querySelector('.pizza-description').innerHTML = item.description;
+
+    document.querySelector('main .content').append(pizzaItem)
 })

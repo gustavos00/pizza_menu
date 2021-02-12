@@ -23,9 +23,11 @@ body {
 }
 
 :root {
-    --lora: 'Lora', serif;
+    --domine: 'Domine', serif;
     --raleway: 'Raleway', sans-serif;
 
+    --orange: #F34213;
+    --white: white;
     --main-bg: #e8e8e8;
     --text-color: #222831;
     --left-aside-bg: #e8e8e8;
