@@ -1,0 +1,60 @@
+
+@media (min-width: 576px) and (max-width: 767.98px) { 
+    main .content {
+        grid-template-columns: repeat(1, 100%);
+        grid-gap: 70px;
+    }
+}
+
+/* Medium devices (tablets, 768px and up)*/ 
+@media (min-width: 768px) and (max-width: 991.98px) { 
+    main .content {
+        grid-template-columns: repeat(2, 50%);
+        grid-gap: 35px;
+    }
+    
+    .modalContent {
+        width: 95%;
+        height: 90%;
+
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr, 1fr;
+
+        padding: 20px;
+
+        align-items: center;
+    }
+
+    .modalInfo {
+        height: 100%;
+        border: 1px solid red;
+    }
+
+    .pizzaInfoModal .mobileCloseModal {
+        display: block;
+    }
+
+    .exitBtn {
+        width: 90% !important;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .exitBtn .closeProduct {
+        display: none;
+    }
+
+    .exitBtn .addProduct {
+        width: 90% !important;
+    }
+}
+
+/* Large devices (desktops, 992px and up)*/ 
+@media (min-width: 992px) and (max-width: 1199.98px) { 
+
+}
+
+/* Extra large devices (large desktops, 1200px and up)*/ 
+@media (min-width: 1200px) { 
+
+}

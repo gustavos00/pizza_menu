@@ -1,5 +1,6 @@
 main {
-    width: 100%;
+    width: 99vw;
+    height: 100vh;
 
     flex-direction: column;
     align-items: center;
@@ -11,11 +12,20 @@ main .tittle {
     letter-spacing: 10px;
 }
 
-main .content {
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 35px;
+main i {
+    position: absolute;
+    top: 40px;
+    right: 40px;
 
-    width: 80vw;
+    font-size: 28px;
+
+    cursor: pointer;
+}
+
+main .content {
+    margin-top: 5rem;
+    grid-template-columns: repeat(3, 33.3%);
+    grid-gap: 35px;
 }
 
 /* -- Models -- */
@@ -26,7 +36,7 @@ main .content {
 
 /* -- Left Menu -- */
 
-.left-menu {
+.leftMenu {
     width: 400px;
     height: 80vh;
 
@@ -44,7 +54,7 @@ main .content {
     transition: .3s;
 }
 
-.left-menu-content {
+.leftMenuContent {
     width: 400px;
     height: 80vh;
     position: relative;
@@ -55,7 +65,7 @@ main .content {
     align-items: center;
 }
 
-.left-menu-content::after {
+.leftMenuContent::after {
     width: 80px;
     height: 50px;
     content: 'Carrinho';
@@ -78,7 +88,7 @@ main .content {
     transition: .3s;
 }
 
-.dark-mode {
+.darkMode {
     height: 5vh;
     width: 300px;
 
@@ -86,7 +96,7 @@ main .content {
     align-items: center;
 }
 
-.dark-mode button {
+.darkMode button {
     width: 150px;
     height: 25px;
 
@@ -102,14 +112,18 @@ main .content {
     outline: none;
 }
 
-.cart-content {
+.cartContent {
     width: 320px;
     height: 65vh;
 }
 
 /* -- Pizza Item -- */
 
-.pizza-item {
+.pizzaItem {
+    width: 25vw;
+    height: 400px;
+    min-width: 250px;
+
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -118,24 +132,34 @@ main .content {
     transition: opacity .2s;
 }
 
-.pizza-item:hover {
+.pizzaItem:hover {
     opacity: 1;
 }
 
-.pizza-item a {
+.pizzaItem a {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+
+    cursor: pointer;
 }
 
-.pizza-item a .pizza-img img{
+.pizzaItem a .pizzaImg img{
     width: 250px;
     height: 250px;
 
-    transition: opacity .3s;
+    box-shadow: 0px 0px 30px -7px #000000;
+    border-radius: 200px;
+
+    transition: opacity .3s, width .5s, height .5s;
 }
 
-.pizza-item a h1 {
+.pizzaItem a .pizzaImg img:hover {
+    width: 270px;
+    height: 270px;
+}
+
+.pizzaItem a h1 {
     width: 50px;
     height: 50px;
     margin-top: -40px; 
@@ -149,24 +173,234 @@ main .content {
     border-radius: 50%;
     background: var(--orange);
 
-    z-index: 99;
+    z-index: 2;
 }
 
-.pizza-item .pizza-price {
+.pizzaItem .pizzaPrice {
     font-weight: lighter;
     font-family: var(--domine);
 }
 
-.pizza-item .pizza-name {
+.pizzaItem .pizzaName {
     margin: .5rem;
 }
 
-.pizza-item .pizza-description {
-    width: 250px;
+.pizzaItem .pizzaDescription {
+    width: 300px;
 
     font-weight: lighter;
     font-family: var(--domine);
     font-size: 14px;
+    line-height: 1.4;
     text-align: center;
-    color: rgba(0,0,0, 0.5);
 }
+
+/* -- Pizza Modal Info -- */
+
+.pizzaInfoModal {
+    width: 100vw;
+    height: 100vh;
+
+    background-color:rgba(255, 255, 255, 0.5);
+
+    display:none;
+    position: fixed;
+    visibility: hidden;
+    opacity: 0;
+
+    z-index: 3;
+
+    background: rgba(255, 255, 255, 0.5);
+    justify-content: center;
+    align-items: center;
+
+    transition: all ease .5s;
+}
+
+.pizzaInfoModal .mobileCloseModal {
+    margin-bottom: 1rem;
+
+    text-align: center;
+    font-size: 20px;
+    font-weight: lighter;
+    text-transform: uppercase;
+    display: none;
+}
+
+.modalContent {
+    width: 900px;
+    height: 430px;
+
+    background: var(--main-bg);
+    border-radius: 20px;
+
+    grid-template-columns: 1fr 1fr;
+    
+    align-items: center;
+}
+
+.modalContent img {
+    width: 40vh;
+    height: 40vh;
+
+    margin: 0 auto;
+}
+
+.modalContent .modalInfo {
+    height: 80%;
+
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.modalContent .modalInfo .pizzaDescription {
+    font-weight: lighter;
+    font-family: var(--domine);
+    font-size: 14px;
+    line-height: 1.4;
+
+    color: var(--text-color);
+    opacity: .7;
+}
+
+.modalContent .modalInfo .pizzaSizeArea {
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.modalContent .modalInfo .pizzaSizeArea h2 {
+    margin-bottom: .5rem;
+    font-family: var(--domine);
+    font-weight: normal;
+    font-size: 14px;
+    text-transform: uppercase;
+
+    color: var(--text-color);
+    opacity: .5;
+}
+
+.modalContent .modalInfo .pizzaSizeArea .pizzaChooseSize {
+    width: 400px;
+    height: 40px;
+
+    background: var(--second-bg);
+    border-radius: 20px !important;
+
+    justify-content: center;
+    align-content: center;
+
+    overflow: hidden;
+}
+
+.modalContent .modalInfo .pizzaSizeArea .pizzaChooseSize .pizzaSize {
+    width: 133.3px;
+
+    align-items: center;
+    justify-content: center;
+
+    background: none;
+    cursor: pointer;
+    outline: none;
+    border: none;
+}
+
+.modalContent .modalInfo .pizzaSizeArea .pizzaChooseSize .pizzaSize h3 {
+    font-family: var(--domine);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.modalContent .modalInfo .pizzaSizeArea .pizzaChooseSize .pizzaSize span {
+    margin-left: 4px;
+    font-size: 11px;
+    font-weight: lighter;
+    font-family: var(--domine);
+    color: var(--text-color)
+}
+
+.modalContent .modalInfo .priceArea {
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.modalContent .modalInfo .priceArea h2 {
+    margin-bottom: .5rem;
+    font-family: var(--domine);
+    font-weight: normal;
+    font-size: 14px;
+    text-transform: uppercase;
+
+    color: var(--text-color);
+    opacity: .5;
+}
+
+.modalContent .modalInfo .priceArea .priceInfo h1 {
+    font-family: var(--domine);
+    font-size: 28px;
+    letter-spacing: 3px;
+}
+
+.modalContent .modalInfo .priceArea .priceInfo .qntBtn {
+    height: 30px;
+    margin: 0 3rem;
+
+    align-items: center;
+
+    background: var(--second-bg);
+    border-radius: 20px;
+}
+
+.modalContent .modalInfo .priceArea .priceInfo .qntBtn .lessQnt, .moreQnt{
+    padding: 0 15px;
+
+    color: var(--text-color);
+    font-size: 24px;
+    font-weight: lighter;
+    
+    background: transparent;
+    border: 0;
+
+    outline: none;
+    cursor: pointer;
+}
+
+.modalContent .modalInfo .exitBtn {
+    width: 370px;
+    justify-content: space-between;
+}
+
+.modalContent .modalInfo .exitBtn .addProduct {
+    width: 240px;
+    height: 60px;
+
+    background: var(--orange);
+    border: none;
+    border-radius: 20px;
+
+    color: white;
+    font-family: var(--domine);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+    cursor: pointer;
+    outline: none;
+    transition: background .3s, color .3s;
+}
+
+.modalContent .modalInfo .exitBtn .addProduct:hover {
+    background: var(--orange-hover);
+}
+
+.modalContent .modalInfo .exitBtn .closeProduct {
+    font-family: var(--domine);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+    border: none;
+    background: transparent;
+    
+    cursor: pointer;
+    outline: none;
+}
+

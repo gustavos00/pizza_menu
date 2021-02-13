@@ -8,24 +8,27 @@
         <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Domine&display=swap" rel="stylesheet">
 
-        <link rel="stylesheet" href="/new project/css/reset.css">
         <link rel="stylesheet" href="/new project/css/style.css">
+        <link rel="stylesheet" href="/new project/css/reset.css">
+        <link rel="stylesheet" href="/new project/css/responsivo.css">
+
+        <script src="https://kit.fontawesome.com/3adda180c0.js" crossorigin="anonymous"></script>
 
         <title>Menu da Pizzaria</title>
     </head>
     <body class = "flex">
         <div class="models">
-            <div class="pizza-item flex">
+            <div class="pizzaItem flex">
                 <a class = "flex">
-                    <div class="pizza-img">
+                    <div class="pizzaImg">
                         <img src="" alt="">
                     </div>
                     <h1 class = "flex">+</h1>
                 </a>
 
-                <h3 class="pizza-price"></h3>
-                <h1 class = "pizza-name"></h1>
-                <h3 class="pizza-description"></h3>
+                <h3 class="pizzaPrice"></h3>
+                <h1 class = "pizzaName"></h1>
+                <h3 class="pizzaDescription"></h3>
             </div>
             
             <div class="cart-item flex hide">
@@ -42,23 +45,64 @@
         </div>
 
         <main class = "flex">
-            <h1 class = "tittle">Modelos de Pizzas</h1>
+            <div class="header">
+                <h1 class = "tittle">Modelos de Pizzas</h1>
+                <i id = "darkModeBtn" class="far fa-moon"></i>
+            </div>
+            
 
             <div class="content grid">
 
             </div>
 
-            <aside id = "left-menu-area" class="left-menu">
-                <div class="left-menu-content flex">
-                    <div class="cart-content">
+            <aside id = "leftMenuArea" class="leftMenu">
+                <div class="leftMenuContent flex">
+                    <div class="cartContent">
 
-                    </div>
-                    <div class="dark-mode flex">
-                        <button id = "darkModeBtn">Switch Mode</button>
                     </div>
                 </div>
             </aside>
         </main>
+
+        <div class="pizzaInfoModal flex">
+            <div class="modalContent grid">
+                <h1 class = "mobileCloseModal">Voltar</h1>
+                <img src="" alt="">
+
+                <div class="modalInfo flex">
+                    <h1 class="pizzaName"></h1>
+                    <h3 class="pizzaDescription"></h3>
+
+                    <div class="pizzaSizeArea flex">
+                        <h2>Tamanhos</h2>
+                        <div class="pizzaChooseSize flex">
+                            <button data-key = "0" class="pizzaSize flex"><h3>Pequena</h3><span>--</span></button>
+                            <button data-key = "1" class="pizzaSize flex"><h3>Média</h3><span>--</span></button>
+                            <button data-key = "2" class="pizzaSize flex selected"><h3>Grande</h3><span>--</span></button>
+                        </div>
+                    </div>
+
+                    <div class="priceArea flex">
+                        <h2>Preço</h2>
+
+                        <div class="priceInfo flex">
+                            <h1 class="price"></h1>
+                            <div class="qntBtn flex">
+                                <button class="lessQnt">-</button>
+                                <h3>1</h3>
+                                <button class="moreQnt">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="exitBtn flex">
+                        <button class="addProduct">Adicionar ao carrinho</button>
+                        <button class="closeProduct">Cancelar</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
 
         <script src="/new project/js/pizzas.js"></script>
         <script src="/new project/js/script.js"></script>

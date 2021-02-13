@@ -8,14 +8,15 @@
 }
 
 body {
-    width: 100vw;
-    height: 100vh;
+    width: 99vw;
+    height: 99vh;
 
     background: var(--main-bg);
 }
 
 .dark-mode:root {
     --main-bg: #222831;
+    --second-bg: #30475e;
     --text-color: #e8e8e8;
     --left-aside-bg: #30475e;
     --border-color: #e8e8e8;
@@ -26,8 +27,10 @@ body {
     --domine: 'Domine', serif;
     --raleway: 'Raleway', sans-serif;
 
+    --orange-hover: #dd3d10;
     --orange: #F34213;
     --white: white;
+    --second-bg: #acacac;
     --main-bg: #e8e8e8;
     --text-color: #222831;
     --left-aside-bg: #e8e8e8;
@@ -51,4 +54,10 @@ body {
 .hide {
     display: none;
     visibility: hidden;
+}
+
+.selected, .selected h3, .selected span {
+    background: var(--orange) !important;
+
+    color: white !important;
 }

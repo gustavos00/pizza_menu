@@ -16,7 +16,7 @@ pizzaJson.map((item, index) => {
     pizzaItem.querySelector('.pizza-item--desc').innerHTML = item.description;
 
     //--- Quando clicar na pizza ---
-    /* pizzaItem.querySelector('a').addEventListener("click", (e) => {
+     pizzaItem.querySelector('a').addEventListener("click", (e) => {
         e.preventDefault(); //Cancelar o reload da página.
         pizzaAmount = 1 //Reseta o valor da quantidade de pizzas
         
@@ -47,7 +47,6 @@ pizzaJson.map((item, index) => {
         }, 30)
 
     })
- */
     qs('.pizza-area').append(pizzaItem)
 });
 
@@ -67,7 +66,7 @@ qsa('.pizzaInfo--cancelButton, .pizzaInfo--cancelMobileButton').forEach((item) =
     })
 })
 
-qsa('.pizzaInfo--size').forEach((size) => { //Para os botões de fechar o modal.
+qsa('.pizzaInfo--size').forEach((size) => { //Para os botões de selecionar o tamanho.
     size.addEventListener("click", (e) => {
         qs('.pizzaInfo--size.selected').classList.remove('selected')
         size.classList.add('selected')
