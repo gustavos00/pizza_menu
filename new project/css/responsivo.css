@@ -1,60 +1,208 @@
-
-@media (min-width: 576px) and (max-width: 767.98px) { 
+@media screen and (min-width: 320px) and (max-width: 480px) {
     main .content {
-        grid-template-columns: repeat(1, 100%);
-        grid-gap: 70px;
-    }
-}
+        margin-top: 2rem;
 
-/* Medium devices (tablets, 768px and up)*/ 
-@media (min-width: 768px) and (max-width: 991.98px) { 
-    main .content {
-        grid-template-columns: repeat(2, 50%);
-        grid-gap: 35px;
-    }
-    
-    .modalContent {
-        width: 95%;
-        height: 90%;
-
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr, 1fr;
-
-        padding: 20px;
-
-        align-items: center;
+        grid-template-columns: 100%;
+        grid-gap: 50px;
     }
 
-    .modalInfo {
-        height: 100%;
-        border: 1px solid red;
-    }
+    .pizzaInfoModal .mobileCloseModal{
+        margin-top: 1rem;
+        margin-bottom: unset;
 
-    .pizzaInfoModal .mobileCloseModal {
         display: block;
     }
 
-    .exitBtn {
-        width: 90% !important;
+    .modalContent {
+        width: 95%;
+        height: 95%;
+
+        overflow-y: auto;
+
+        grid-template-columns: 100%;
+        grid-template-rows: 70px repeat(2, auto);
+        justify-items: center;
+    }
+
+    .modalContent img {
+        width: 250px;
+        height: 250px;
+    }
+
+    .modalContent .modalInfo {
+        width: 90%;
+        height: 100%;
+    }
+
+    .modalContent .modalInfo .pizzaDescription {
+        font-size: 12px;
+    }
+
+    .modalContent .modalInfo .pizzaSizeArea,
+    .modalContent .modalInfo .priceArea {
+        margin: .5rem .3rem;
+    }
+
+    .modalContent .modalInfo .priceArea .priceInfo h1 {
+        font-size: 20px;
+    }
+
+    .modalContent .modalInfo .pizzaSizeArea h2,
+    .modalContent .modalInfo .priceArea h2 {
+        font-size: 12px;
+    }
+
+    .modalContent .modalInfo .pizzaSizeArea .pizzaChooseSize {
+        width: 250px;
+        min-width: unset;
+    }
+
+    .modalContent .modalInfo .pizzaSizeArea .pizzaChooseSize .pizzaSize {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: .7rem;
+    }
+
+    .modalContent .modalInfo .pizzaSizeArea .pizzaChooseSize .pizzaSize h3 {
+        font-size: 10px;
+    }
+
+    .modalContent .modalInfo .exitBtn {
+        width: 100%;
+
         justify-content: center;
-        align-items: center;
     }
-
-    .exitBtn .closeProduct {
+    
+    .modalContent .modalInfo .exitBtn .addProduct {
+        height: 40px;
+        width: 85%;
+    }
+    .modalContent .modalInfo .exitBtn .closeProduct {
         display: none;
-    }
-
-    .exitBtn .addProduct {
-        width: 90% !important;
+        position: fixed;
     }
 }
 
-/* Large devices (desktops, 992px and up)*/ 
-@media (min-width: 992px) and (max-width: 1199.98px) { 
 
+
+@media screen and (min-width: 480px) and (max-width: 600px) {
+    main .content {
+        margin-top: 2rem;
+
+        grid-template-columns: 100%;
+        grid-gap: 50px;
+    }
+
+    .pizzaInfoModal .mobileCloseModal{
+        margin-top: 1rem;
+        margin-bottom: unset;
+
+        display: block;
+    }
+
+    .modalContent {
+        width: 90%;
+        height: 90%;
+        min-height: 700px;
+        max-height: 760px;
+
+        grid-template-columns: 100%;
+        grid-template-rows: 70px repeat(2, auto);
+        justify-items: center;
+    }
+
+    .modalContent img {
+        width: 350px;
+        height: 350px;
+    }
+
+    .modalContent .modalInfo {
+        width: 90%;
+        height: 95%;
+    }
+
+    .modalContent .modalInfo .pizzaDescription {
+        font-size: 16px;
+    }
+
+    .modalContent .modalInfo .pizzaSizeArea,
+    .modalContent .modalInfo .priceArea {
+        margin: .7rem;
+    }
+
+    .modalContent .modalInfo .exitBtn {
+        width: 100%;
+
+        justify-content: center;
+    }
+    
+    .modalContent .modalInfo .exitBtn .addProduct {
+        width: 70%;
+    }
+    .modalContent .modalInfo .exitBtn .closeProduct {
+        display: none;
+        position: fixed;
+    }
 }
 
-/* Extra large devices (large desktops, 1200px and up)*/ 
-@media (min-width: 1200px) { 
+@media screen and (min-width: 600px) and (max-width: 1024px) {
+    main .content {
+        grid-template-columns: repeat(2, auto);
+        grid-column-gap: 12vw;
+    }
+
+    .pizzaInfoModal .mobileCloseModal{
+        margin-top: 1rem;
+        margin-bottom: unset;
+
+        display: block;
+    }
+
+    .modalContent {
+        width: 90%;
+        height: 90%;
+        min-height: 700px;
+        max-height: 760px;
+
+        grid-template-columns: 100%;
+        grid-template-rows: 70px repeat(2, auto);
+        justify-items: center;
+    }
+
+    .modalContent img {
+        width: 350px;
+        height: 350px;
+    }
+
+    .modalContent .modalInfo {
+        width: 90%;
+        height: 95%;
+    }
+
+    .modalContent .modalInfo .pizzaDescription {
+        font-size: 16px;
+    }
+
+    .modalContent .modalInfo .pizzaSizeArea,
+    .modalContent .modalInfo .priceArea {
+        margin: .7rem;
+    }
+
+    .modalContent .modalInfo .exitBtn {
+        width: 100%;
+
+        justify-content: center;
+    }
+    
+    .modalContent .modalInfo .exitBtn .addProduct {
+        width: 70%;
+    }
+    .modalContent .modalInfo .exitBtn .closeProduct {
+        display: none;
+        position: fixed;
+    }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1200px) {
 
 }

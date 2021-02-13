@@ -88,14 +88,16 @@ function closeModal() {
 }
 
 document.querySelectorAll('.closeProduct, .mobileCloseModal').forEach((element) => {
-    element.addEventListener("click", (element) => {
-        closeModal();
-    }); 
+    element.addEventListener("click", () => {closeModal()}); 
 });
 
 document.querySelectorAll('.pizzaSize').forEach((element) => {
     element.addEventListener("click", () => {
+        let dataKey = element.getAttribute('data-key');
+
         document.querySelector('.pizzaSize.selected').classList.remove('selected')
         element.classList.add('selected')
     })
 })
+
+

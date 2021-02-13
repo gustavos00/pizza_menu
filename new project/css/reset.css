@@ -8,8 +8,8 @@
 }
 
 body {
-    width: 99vw;
-    height: 99vh;
+    max-width: 100%;
+    overflow-x: hidden;
 
     background: var(--main-bg);
 }
@@ -60,4 +60,18 @@ body {
     background: var(--orange) !important;
 
     color: white !important;
+}
+
+/* Scroll style */
+
+body::-webkit-scrollbar-track {
+    background-color: gray;
+    border-radius: 5px;
+}
+body::-webkit-scrollbar {
+    width: 6px;
+}
+body::-webkit-scrollbar-thumb {
+    background: var(--orange);
+    border-radius: 5px;
 }
