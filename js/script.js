@@ -27,6 +27,7 @@ pizzaJson.map((item, index) => {
 
     pizzaItem.querySelector('a').addEventListener("click", e => {
         e.preventDefault();
+        pizzaAmount = 1;
 
         key = e.target.closest('.pizzaItem').getAttribute('data-key');
         pizzaPrice = pizzaJson[key].price.toFixed(2);
@@ -86,10 +87,10 @@ document.querySelectorAll('.pizzaSize').forEach((element) => {
 
         switch(Number(keyValue)) {
             case 0:
-                pizzaPriceFloat *= .9
+                pizzaPriceFloat *= .8
                 break;
             case 1:
-                pizzaPriceFloat *= .8
+                pizzaPriceFloat *= .9
                 break
             default: 
                 console.log("Erro ao calcular o preço. Key = " +  key);
@@ -109,12 +110,18 @@ document.querySelectorAll('.pizzaSize').forEach((element) => {
 document.querySelector(".lessQnt").addEventListener("click", () => {//Para os botões de diminuir a quantidade de pizzas
     if (pizzaAmount > 1) {
         pizzaAmount--
+        let pizzaPriceAct = (pizzaJson[key].price * pizzaAmount).toFixed(2);
+
+        pizzaModalContent.querySelector('.price').innerHTML = `${pizzaPriceAct}€`;
         document.querySelector('.qntBtn h3').innerHTML = pizzaAmount 
     } 
 })
 
 document.querySelector(".moreQnt").addEventListener("click", () => {//Para os botões de aumentar a quantidade de pizzas
     pizzaAmount++
+    let pizzaPriceAct = (pizzaJson[key].price * pizzaAmount).toFixed(2);
+        
+    pizzaModalContent.querySelector('.price').innerHTML = `${pizzaPriceAct}€`;
     document.querySelector('.qntBtn h3').innerHTML = pizzaAmount
 })
 

@@ -257,9 +257,11 @@ main .content {
 }
 
 .modalContent .modalInfo .priceArea .priceInfo h1 {
+    width: 150px;
+    
     font-family: var(--domine);
     font-size: 28px;
-    letter-spacing: 3px;
+    letter-spacing: 3px; 
 }
 
 .modalContent .modalInfo .priceArea .priceInfo .qntBtn {
