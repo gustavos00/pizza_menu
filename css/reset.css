@@ -56,6 +56,12 @@ body {
     visibility: hidden;
 }
 
+.show {
+    visibility: visible;
+    display: flex;
+    opacity: 1;
+}
+
 .selected, .selected h3, .selected span {
     background: var(--orange) !important;
 

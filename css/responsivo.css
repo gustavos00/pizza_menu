@@ -18,6 +18,7 @@
         height: 95%;
 
         overflow-y: auto;
+        overflow-x: hidden;
 
         grid-template-columns: 100%;
         grid-template-rows: 70px repeat(2, auto);
@@ -25,8 +26,8 @@
     }
 
     .modalContent img {
-        width: 250px;
-        height: 250px;
+        max-width: 150px;
+        max-height: 150px;
     }
 
     .modalContent .modalInfo {
@@ -104,7 +105,7 @@
         width: 90%;
         height: 90%;
         min-height: 700px;
-        max-height: 760px;
+        max-height: 800px;
 
         grid-template-columns: 100%;
         grid-template-rows: 70px repeat(2, auto);
@@ -112,8 +113,8 @@
     }
 
     .modalContent img {
-        width: 350px;
-        height: 350px;
+        width: 250px;
+        height: 250px;
     }
 
     .modalContent .modalInfo {

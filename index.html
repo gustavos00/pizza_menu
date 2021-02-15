@@ -31,26 +31,28 @@
                 <h3 class="pizzaDescription"></h3>
             </div>
             
-            <div class="cart-item flex hide">
+            <div class="cartItem flex">
                 <img src="" alt="">
-                <h1 id ="cart-pizza-name"></h1>
-                <h2 id ="cart-pizza-size"></h2>
+                <h1 class = "cartPizzaName"></h1>
 
-                <div class="cart-quantity-area">
-                    <button class="remove-quantity"></button>
-                    <h3 class="show-quantity"></h3>
-                    <button class="add-quantity"></button>
+                <div class="cartQuantityArea flex">
+                    <button class="removeQuantity">-</button>
+                    <h3 class="showQuantity"></h3>
+                    <button class="addQuantity">+</button>
                 </div>
             </div>
         </div>
 
         <main class = "flex">
-            <div class="header">
-                <h1 class = "tittle">Modelos de Pizzas</h1>
+            <div class="header flex">
                 <i id = "darkModeBtn" class="far fa-moon"></i>
+                <h1 class = "tittle">Modelos de Pizzas</h1>
+                <i class="cartIcon fas fa-shopping-cart">
+                    <span>1</span>
+                </i>
+                
             </div>
             
-
             <div class="content grid">
 
             </div>
@@ -74,7 +76,6 @@
                         <h1 class="pizzaName"></h1>
                         <h3 class="pizzaDescription"></h3>
                     </div>
-
 
                     <div class="pizzaSizeArea flex">
                         <h2>Tamanhos</h2>
@@ -105,6 +106,17 @@
 
                 </div>
             </div>
+        </div>
+
+        <div class="cart">
+            <div class="cartHeader flex">
+                <h1>Seu carrinho</h1>
+            </div>
+
+            <div class="container flex">
+                <h1>Infelizmente você ainda não comprou nada connosco :(</h1>
+            </div>
+
         </div>
 
         <script src="/js/pizzas.js"></script>

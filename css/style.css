@@ -6,20 +6,50 @@ main {
     align-items: center;
 }
 
+main .header {
+    width: 90%;
+
+    justify-content: center;
+    align-items: center;
+    justify-content: space-around;
+}
+
 main .tittle {
     margin: 2rem;
     text-transform: uppercase;
     letter-spacing: 10px;
 }
 
-main i {
-    position: absolute;
-    top: 40px;
-    right: 40px;
-
+main .header i {
     font-size: 28px;
 
+    position: relative;
     cursor: pointer;
+}
+
+main .header .cartIcon span {
+    width: 25px;
+    height: 25px;
+
+    background: var(--orange);
+    border-radius: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+    font-size: 18px;
+
+    display: none;    
+    
+    position: absolute;
+    top: -10px;
+    right: -10px;
+}
+
+main .header .cartIcon span:hover {
+    background: var(--orange-hover);
 }
 
 main .content {
@@ -51,6 +81,10 @@ main .content {
 
 .pizzaItem:hover {
     opacity: 1;
+}
+
+.pizzaItem a h1:hover {
+    background: var(--orange-hover);
 }
 
 .pizzaItem a {
@@ -112,6 +146,48 @@ main .content {
     text-align: center;
 }
 
+/* -- Cart Item -- */
+
+.cartItem {
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid red;
+}
+
+.cartItem img {
+    width: 80px;
+    height: 80px;
+}
+
+.cartItem .cartPizzaName {
+    font-size: 20px;
+    font-family: var(--domine);
+}
+
+.cartItem .cartQuantityArea {
+    height: 30px;
+    margin: 0 3rem;
+
+    align-items: center;
+
+    background: var(--second-bg);
+    border-radius: 20px;
+}
+
+.cartItem .cartQuantityArea .removeQuantity, .addQuantity{
+    padding: 0 15px;
+
+    color: var(--text-color);
+    font-size: 24px;
+    font-weight: lighter;
+    
+    background: transparent;
+    border: 0;
+
+    outline: none;
+    cursor: pointer;
+}
+
 /* -- Pizza Modal Info -- */
 
 .pizzaInfoModal {
@@ -152,6 +228,7 @@ main .content {
 
     background: var(--main-bg);
     border-radius: 20px;
+    overflow-y: auto;
 
     grid-template-columns: 1fr 1fr;
     
@@ -159,8 +236,10 @@ main .content {
 }
 
 .modalContent img {
-    width: 35vh;
-    height: 35vh;
+    width: 20vh;
+    height: 20vh;
+    min-width: 400px;
+    min-height: 400px;
 
     margin: 0 auto;
 }
@@ -327,5 +406,64 @@ main .content {
     cursor: pointer;
     outline: none;
 }
+
+/* --- Cart --- */
+
+.cart {
+    width: 50vw;
+    height: 400px;
+    max-width: 450px;
+
+    background: var(--second-bg);
+    border-radius: 20px;
+
+    flex-direction: column;
+    
+    display:none;
+    visibility: hidden;
+    opacity: 0;
+
+    position: absolute;
+    top:100px;
+    right: 5vw;
+
+    overflow-y: scroll;
+    transition: visibility .2s, display .2s, opacity .2s;
+}
+
+.cart::-webkit-scrollbar {
+    display: none;
+}
+
+.cart .cartHeader {
+    width: 100%;
+    height: 50px;
+    margin-top: 1rem;
+
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.cart .cartHeader h1 {
+    font-family: var(--domine);
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+
+.cart .container {
+    width: 100%;
+    height: 100%;
+
+    flex-direction: column;
+    justify-content: center;
+}
+
+.cart .container h1 {
+    text-align: center;
+}
+
+
+
 
 
