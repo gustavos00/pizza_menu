@@ -9,10 +9,13 @@ let pizzaAmount = 1; //Quantidade de pizzas do modal.
 let cart = []; //Carrinho de compras.
 let modalKey, pizzaPrice, pizzaPriceFloat;
 
+let subtotal = 0;
+let discount = 0;
+let total = 0;
 let cartModal = document.querySelector(".cart");
 let cartVisibility = "hidden";
 
-    //Functions
+//Functions
 function closePizzaInfoModal() {
     pizzaModal.style.opacity = 0;
 
@@ -146,6 +149,7 @@ pizzaJson.map((item, index) => { //Fill content div with pizzas info & open moda
 
     pizzaItem.querySelector('a').addEventListener("click", e => {
         e.preventDefault();
+        closeCartModal();
 
         key = e.target.closest('.pizzaItem').getAttribute('data-key');
         pizzaPrice = pizzaJson[key].price.toFixed(2);
@@ -184,10 +188,6 @@ function updateCar() { //Update cart function
     if (cart.length > 0) {
         document.querySelector('.cart .container').innerHTML = '';
 
-        let subtotal = 0;
-        let discount = 0;
-        let total = 0;
-
         for(let i in cart) {
             let pizzaItem = pizzaJson.find(item => item.id == cart[i].id);
             let cartItem = document.querySelector('.models .cartItem').cloneNode(true);
@@ -198,12 +198,13 @@ function updateCar() { //Update cart function
             switch(cart[i].size) {
                 case 0:
                     pizzaSizeName = "Pequena";
+                    console.log()
                     break;
                 case 1:
-                    pizzaSizeName = "Pequena";
+                    pizzaSizeName = "Média";
                     break;
                 case 2:
-                    pizzaSizeName = "Pequena";
+                    pizzaSizeName = "Grande";
                     break;
                 default:
                     pizzaSizeName = "Erro"
@@ -212,27 +213,34 @@ function updateCar() { //Update cart function
 
             cartItem.querySelector('img').src = pizzaItem.img;
             cartItem.querySelector('.cartPizzaName').innerHTML = pizzaItem.name;
-            cartItem.querySelector('.pizzaSize').innerHTML = ` - ${pizzaSizeName}`
+            cartItem.querySelector('.pizzaSize').innerHTML = " - " + pizzaSizeName;
             cartItem.querySelector('.cartQuantityArea .showQuantity').innerHTML = cart[i].amount;
             cartItem.querySelector('.cartQuantityArea .removeQuantity').addEventListener("click", () => {
-                                   console.log(cart)
                 
                 if(cart[i].amount > 1) {
                     cart[i].amount--;
                 } else {
-                    console.log(cart)
-                    cart.splice(i, 1)
-                    console.log(cart)
+                    console.log(cart);
+                    cart.splice(i, 1);
+                    console.log(cart);
                 }
                 updateCar()
             })
 
             cartItem.querySelector('.cartQuantityArea .addQuantity').addEventListener("click", () => {
                 cart[i].amount++;
-                updateCar()
+                updateCar();
             })
 
-            document.querySelector('.cart .container').append(cartItem)            
+            document.querySelector('.cart .container').append(cartItem);    
         }
+
+        discount = Math.round(subtotal * 0.1);
+        total = subtotal - discount;
+
+        document.querySelector('.cart .finalData .text .subTotal').innerHTML = `Subtotal: ${subtotal.toFixed(2)}€`;
+        document.querySelector('.cart .finalData .text .discount').innerHTML = `Desconto: ${discount.toFixed(2)}€`
+        document.querySelector('.cart .finalData .text .totalText').innerHTML = `Total: ${total.toFixed(2)}€`
+
     }
 }
