@@ -211,7 +211,8 @@ function updateCar() { //Update cart function
             }
 
             cartItem.querySelector('img').src = pizzaItem.img;
-            cartItem.querySelector('.cartPizzaName').innerHTML = `${pizzaItem.name} - ${pizzaSizeName}`;
+            cartItem.querySelector('.cartPizzaName').innerHTML = pizzaItem.name;
+            cartItem.querySelector('.pizzaSize').innerHTML = ` - ${pizzaSizeName}`
             cartItem.querySelector('.cartQuantityArea .showQuantity').innerHTML = cart[i].amount;
             cartItem.querySelector('.cartQuantityArea .removeQuantity').addEventListener("click", () => {
                                    console.log(cart)

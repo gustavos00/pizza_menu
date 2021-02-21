@@ -27,13 +27,17 @@
                 </a>
 
                 <h3 class="pizzaPrice"></h3>
-                <h1 class = "pizzaName"></h1>
+                <h1 class = "pizzaName"></h3></h1>
                 <h3 class="pizzaDescription"></h3>
             </div>
             
             <div class="cartItem flex">
                 <img src="" alt="">
-                <h1 class = "cartPizzaName"></h1>
+                <div class="pizzaInfo flex">
+                    <h1 class = "cartPizzaName"></h1> 
+                    <h3 class = "pizzaSize"> </h3>
+                </div>
+               
 
                 <div class="cartQuantityArea flex">
                     <button class="removeQuantity">-</button>
@@ -110,13 +114,25 @@
 
         <div class="cart">
             <div class="cartHeader flex">
-                <h1>Seu carrinho</h1>
+                <h3>Seu carrinho</h3>
             </div>
 
             <div class="container flex">
                 <h1>Infelizmente você ainda não comprou nada connosco :(</h1>
             </div>
 
+            <div class="finalData flex">
+                <div class="text">
+                    <h2>Subtotal:</h2>
+                    <h2>Desconto: </h2>
+                    <h2 class = "totalText" >Total:</h2>
+                </div>
+                <div class="buttonArea flex">  
+                    <button>Finalizar compra</button>  
+                </div>
+                
+            </div>
+            
         </div>
 
         <script src="/js/pizzas.js"></script>

@@ -29,18 +29,12 @@ body {
 
     --orange-hover: #dd3d10;
     --orange: #F34213;
-    --white: white;
-    --second-bg: #acacac;
+    --second-bg: #d8d7d7;
     --main-bg: #e8e8e8;
     --text-color: #222831;
-    --left-aside-bg: #e8e8e8;
+    --white-text-color: #e8e8e8;
     --border-color: #222831;
-/* 
-    lite-gray: #e8e8e8;
-    dark-blue: #222831;
-    blue: #30475e;
-    red: #f05454;
-    black: black; */
+
 }
 
 .flex {

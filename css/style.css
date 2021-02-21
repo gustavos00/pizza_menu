@@ -1,469 +1,544 @@
 main {
-    width: 99vw;
-    height: 100vh;
+  width: 99vw;
+  height: 100vh;
 
-    flex-direction: column;
-    align-items: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 main .header {
-    width: 90%;
+  width: 90%;
 
-    justify-content: center;
-    align-items: center;
-    justify-content: space-around;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-around;
 }
 
 main .tittle {
-    margin: 2rem;
-    text-transform: uppercase;
-    letter-spacing: 10px;
+  margin: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 10px;
 }
 
 main .header i {
-    font-size: 28px;
+  font-size: 28px;
 
-    position: relative;
-    cursor: pointer;
+  position: relative;
+  cursor: pointer;
 }
 
 main .header .cartIcon span {
-    width: 25px;
-    height: 25px;
+  width: 25px;
+  height: 25px;
 
-    background: var(--orange);
-    border-radius: 50px;
+  background: var(--orange);
+  border-radius: 50px;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    color: white;
-    font-size: 18px;
+  color: white;
+  font-size: 18px;
 
-    display: none;    
-    
-    position: absolute;
-    top: -10px;
-    right: -10px;
+  display: none;
+
+  position: absolute;
+  top: -10px;
+  right: -10px;
 }
 
 main .header .cartIcon span:hover {
-    background: var(--orange-hover);
+  background: var(--orange-hover);
 }
 
 main .content {
-    margin-top: 5rem;
-    grid-template-columns: repeat(3, auto);
-    grid-gap: 35px;
+  margin-top: 5rem;
+  grid-template-columns: repeat(3, auto);
+  grid-gap: 35px;
 }
 
 /* -- Models -- */
 
 .models {
-    display: none;
+  display: none;
 }
 
 /* -- Pizza Item -- */
 
 .pizzaItem {
-    width: 25vw;
-    height: 400px;
-    min-width: 250px;
+  width: 25vw;
+  height: 400px;
+  min-width: 250px;
 
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 
-    opacity: .8;
-    transition: opacity .2s;
+  opacity: 0.8;
+  transition: opacity 0.2s;
 }
 
 .pizzaItem:hover {
-    opacity: 1;
+  opacity: 1;
 }
 
 .pizzaItem a h1:hover {
-    background: var(--orange-hover);
+  background: var(--orange-hover);
 }
 
 .pizzaItem a {
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 
-    cursor: pointer;
+  cursor: pointer;
 }
 
-.pizzaItem a .pizzaImg img{
-    width: 250px;
-    height: 250px;
+.pizzaItem a .pizzaImg img {
+  width: 250px;
+  height: 250px;
 
-    box-shadow: 0px 0px 30px -7px #000000;
-    border-radius: 200px;
+  box-shadow: 0px 0px 30px -7px #000000;
+  border-radius: 200px;
 
-    transition: opacity .3s, width .5s, height .5s;
+  transition: opacity 0.3s, width 0.5s, height 0.5s;
 }
 
 .pizzaItem a .pizzaImg img:hover {
-    width: 270px;
-    height: 270px;
+  width: 270px;
+  height: 270px;
 }
 
 .pizzaItem a h1 {
-    width: 50px;
-    height: 50px;
-    margin-top: -40px; 
-    
-    justify-content: center;
-    align-items: center;
+  width: 50px;
+  height: 50px;
+  margin-top: -40px;
 
-    color: white;
-    font-size: 36px;
+  justify-content: center;
+  align-items: center;
 
-    border-radius: 50%;
-    background: var(--orange);
+  color: white;
+  font-size: 36px;
 
-    z-index: 2;
+  border-radius: 50%;
+  background: var(--orange);
+
+  z-index: 2;
 }
 
 .pizzaItem .pizzaPrice {
-    font-weight: lighter;
-    font-family: var(--domine);
+  font-weight: lighter;
+  font-family: var(--domine);
 }
 
 .pizzaItem .pizzaName {
-    margin: .5rem;
+  margin: 0.5rem;
 }
 
 .pizzaItem .pizzaDescription {
-    width: 300px;
+  width: 300px;
 
-    font-weight: lighter;
-    font-family: var(--domine);
-    font-size: 14px;
-    line-height: 1.4;
-    text-align: center;
+  font-weight: lighter;
+  font-family: var(--domine);
+  font-size: 14px;
+  line-height: 1.4;
+  text-align: center;
 }
 
 /* -- Cart Item -- */
 
 .cartItem {
-    justify-content: space-between;
-    align-items: center;
-    border: 1px solid red;
+  padding: 0.5rem;
+  margin: 0.4rem 1rem;
+
+  justify-content: space-between;
+  align-items: center;
+
+  box-shadow: 0px 0px 15px -6.5px #000000;
+  background: var(--main-bg);
+  border-radius: 20px;
 }
 
 .cartItem img {
-    width: 80px;
-    height: 80px;
+  width: 80px;
+  height: 80px;
+}
+
+.cartItem .pizzaInfo {
+  width: 200px;
+  margin-left: 0.5rem;
+
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 .cartItem .cartPizzaName {
-    font-size: 20px;
-    font-family: var(--domine);
+  font-size: 18px;
+  font-family: var(--domine);
+  text-align: start;
 }
 
 .cartItem .cartQuantityArea {
-    height: 30px;
-    margin: 0 3rem;
+  height: 30px;
+  margin-right: 1rem;
 
-    align-items: center;
+  align-items: center;
 
-    background: var(--second-bg);
-    border-radius: 20px;
+  background: var(--orange);
+  border-radius: 20px;
 }
 
-.cartItem .cartQuantityArea .removeQuantity, .addQuantity{
-    padding: 0 15px;
+.cartItem .cartQuantityArea .removeQuantity,
+.addQuantity {
+  padding: 0 15px;
 
-    color: var(--text-color);
-    font-size: 24px;
-    font-weight: lighter;
-    
-    background: transparent;
-    border: 0;
+  color: var(--white-text-color);
+  font-size: 24px;
+  font-weight: lighter;
 
-    outline: none;
-    cursor: pointer;
+  background: transparent;
+  border: 0;
+
+  outline: none;
+  cursor: pointer;
+}
+
+.cartItem .cartQuantityArea .showQuantity {
+    color: var(--white-text-color);
 }
 
 /* -- Pizza Modal Info -- */
 
 .pizzaInfoModal {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 
-    background-color:rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.5);
 
-    display:none;
-    position: fixed;
-    visibility: hidden;
-    opacity: 0;
+  display: none;
+  position: fixed;
+  visibility: hidden;
+  opacity: 0;
 
-    z-index: 3;
+  z-index: 3;
 
-    background: rgba(255, 255, 255, 0.5);
-    justify-content: center;
-    align-items: center;
+  background: rgba(255, 255, 255, 0.5);
+  justify-content: center;
+  align-items: center;
 
-    transition: all ease .5s;
+  transition: all ease 0.5s;
 }
 
 .pizzaInfoModal .mobileCloseModal {
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
 
-    text-align: center;
-    font-size: 20px;
-    font-weight: lighter;
-    text-transform: uppercase;
+  text-align: center;
+  font-size: 20px;
+  font-weight: lighter;
+  text-transform: uppercase;
 
-    cursor: pointer;
-    display: none;
+  cursor: pointer;
+  display: none;
 }
 
 .modalContent {
-    width: 900px;
-    height: 430px;
+  width: 900px;
+  height: 430px;
 
-    background: var(--main-bg);
-    border-radius: 20px;
-    overflow-y: auto;
+  background: var(--main-bg);
+  border-radius: 20px;
+  overflow-y: auto;
 
-    grid-template-columns: 1fr 1fr;
-    
-    align-items: center;
+  grid-template-columns: 1fr 1fr;
+
+  align-items: center;
 }
 
 .modalContent img {
-    width: 20vh;
-    height: 20vh;
-    min-width: 400px;
-    min-height: 400px;
+  width: 20vh;
+  height: 20vh;
+  min-width: 400px;
+  min-height: 400px;
 
-    margin: 0 auto;
+  margin: 0 auto;
 }
 
 .modalContent .modalInfo {
-    height: 80%;
+  height: 80%;
 
-    flex-direction: column;
-    justify-content: space-between;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .modalContent .modalInfo .pizzaDescription {
-    font-weight: lighter;
-    font-family: var(--domine);
-    font-size: 14px;
-    line-height: 1.4;
+  font-weight: lighter;
+  font-family: var(--domine);
+  font-size: 14px;
+  line-height: 1.4;
 
-    color: var(--text-color);
-    opacity: .7;
+  color: var(--text-color);
+  opacity: 0.7;
 }
 
 .modalContent .modalInfo .pizzaSizeArea {
-    flex-direction: column;
-    justify-content: space-between;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .modalContent .modalInfo .pizzaSizeArea h2 {
-    margin-bottom: .5rem;
-    font-family: var(--domine);
-    font-weight: normal;
-    font-size: 14px;
-    text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  font-family: var(--domine);
+  font-weight: normal;
+  font-size: 14px;
+  text-transform: uppercase;
 
-    color: var(--text-color);
-    opacity: .5;
+  color: var(--text-color);
+  opacity: 0.5;
 }
 
 .modalContent .modalInfo .pizzaSizeArea .pizzaChooseSize {
-    width: 19vw;
-    max-width: 370px;
-    min-width: 350px;
-    height: 40px;
+  width: 19vw;
+  max-width: 370px;
+  min-width: 350px;
+  height: 40px;
 
-    background: var(--second-bg);
-    border-radius: 20px !important;
+  background: var(--second-bg);
+  border-radius: 20px !important;
 
-    justify-content: center;
-    align-content: center;
+  justify-content: center;
+  align-content: center;
 
-    overflow: hidden;
+  overflow: hidden;
 }
 
 .modalContent .modalInfo .pizzaSizeArea .pizzaChooseSize .pizzaSize {
-    width: 133.3px;
+  width: 133.3px;
 
-    align-items: center;
-    justify-content: center;
+  align-items: center;
+  justify-content: center;
 
-    background: none;
-    cursor: pointer;
-    outline: none;
-    border: none;
+  background: none;
+  cursor: pointer;
+  outline: none;
+  border: none;
 }
 
 .modalContent .modalInfo .pizzaSizeArea .pizzaChooseSize .pizzaSize h3 {
-    font-family: var(--domine);
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+  font-family: var(--domine);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 .modalContent .modalInfo .pizzaSizeArea .pizzaChooseSize .pizzaSize span {
-    margin-left: 4px;
-    font-size: 11px;
-    font-weight: lighter;
-    font-family: var(--domine);
-    color: var(--text-color)
+  margin-left: 4px;
+  font-size: 11px;
+  font-weight: lighter;
+  font-family: var(--domine);
+  color: var(--text-color);
 }
 
 .modalContent .modalInfo .priceArea {
-    flex-direction: column;
-    justify-content: space-between;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .modalContent .modalInfo .priceArea h2 {
-    margin-bottom: .5rem;
-    font-family: var(--domine);
-    font-weight: normal;
-    font-size: 14px;
-    text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  font-family: var(--domine);
+  font-weight: normal;
+  font-size: 14px;
+  text-transform: uppercase;
 
-    color: var(--text-color);
-    opacity: .5;
+  color: var(--text-color);
+  opacity: 0.5;
 }
 
 .modalContent .modalInfo .priceArea .priceInfo h1 {
-    width: 150px;
-    
-    font-family: var(--domine);
-    font-size: 28px;
-    letter-spacing: 3px; 
+  width: 150px;
+
+  font-family: var(--domine);
+  font-size: 28px;
+  letter-spacing: 3px;
 }
 
 .modalContent .modalInfo .priceArea .priceInfo .qntBtn {
-    height: 30px;
-    margin: 0 3rem;
+  height: 30px;
+  margin: 0 3rem;
 
-    align-items: center;
+  align-items: center;
 
-    background: var(--second-bg);
-    border-radius: 20px;
+  background: var(--second-bg);
+  border-radius: 20px;
 }
 
-.modalContent .modalInfo .priceArea .priceInfo .qntBtn .lessQnt, .moreQnt{
-    padding: 0 15px;
+.modalContent .modalInfo .priceArea .priceInfo .qntBtn .lessQnt,
+.moreQnt {
+  padding: 0 15px;
 
-    color: var(--text-color);
-    font-size: 24px;
-    font-weight: lighter;
-    
-    background: transparent;
-    border: 0;
+  color: var(--text-color);
+  font-size: 24px;
+  font-weight: lighter;
 
-    outline: none;
-    cursor: pointer;
+  background: transparent;
+  border: 0;
+
+  outline: none;
+  cursor: pointer;
 }
 
 .modalContent .modalInfo .exitBtn {
-    width: 370px;
-    justify-content: space-between;
+  width: 370px;
+  justify-content: space-between;
 }
 
 .modalContent .modalInfo .exitBtn .addProduct {
-    width: 240px;
-    height: 50px;
-    margin: .5rem 0;
+  width: 240px;
+  height: 50px;
+  margin: 0.5rem 0;
 
-    background: var(--orange);
-    border: none;
-    border-radius: 20px;
+  background: var(--orange);
+  border: none;
+  border-radius: 20px;
 
-    color: white;
-    font-family: var(--domine);
-    text-transform: uppercase;
-    letter-spacing: 1px;
+  color: white;
+  font-family: var(--domine);
+  text-transform: uppercase;
+  letter-spacing: 1px;
 
-    cursor: pointer;
-    outline: none;
-    transition: background .3s, color .3s;
+  cursor: pointer;
+  outline: none;
+  transition: background 0.3s, color 0.3s;
 }
 
 .modalContent .modalInfo .exitBtn .addProduct:hover {
-    background: var(--orange-hover);
+  background: var(--orange-hover);
 }
 
 .modalContent .modalInfo .exitBtn .closeProduct {
-    font-family: var(--domine);
-    text-transform: uppercase;
-    letter-spacing: 1px;
+  font-family: var(--domine);
+  text-transform: uppercase;
+  letter-spacing: 1px;
 
-    border: none;
-    background: transparent;
-    
-    cursor: pointer;
-    outline: none;
+  border: none;
+  background: transparent;
+
+  cursor: pointer;
+  outline: none;
 }
 
 /* --- Cart --- */
 
 .cart {
-    width: 50vw;
-    height: 400px;
-    max-width: 450px;
+  width: 50vw;
+  height: 600px;
+  max-width: 450px;
 
-    background: var(--second-bg);
-    border-radius: 20px;
+  background: var(--second-bg);
+  
+  border-radius: 20px;
 
-    flex-direction: column;
-    
-    display:none;
-    visibility: hidden;
-    opacity: 0;
+  flex-direction: column;
 
-    position: absolute;
-    top:100px;
-    right: 5vw;
+  display: none;
+  visibility: hidden;
+  opacity: 0;
 
-    overflow-y: scroll;
-    transition: visibility .2s, display .2s, opacity .2s;
+  position: absolute;
+  top: 100px;
+  right: 5vw;
+
+  z-index: 5;
+  overflow-y: scroll;
+  transition: visibility 0.2s, display 0.2s, opacity 0.2s;
 }
 
 .cart::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 .cart .cartHeader {
-    width: 100%;
-    height: 50px;
-    margin-top: 1rem;
+  width: 100%;
+  height: 50px;
+  margin-top: 1rem;
 
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
-.cart .cartHeader h1 {
-    font-family: var(--domine);
-    font-size: 20px;
-    letter-spacing: 2px;
+.cart .cartHeader h3 {
+  font-family: var(--domine);
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+
+  color: var(--text-color);
 }
 
 .cart .container {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
+  margin-top: 1rem;
 
-    flex-direction: column;
-    justify-content: center;
+  overflow-y: auto;
+
+  flex-direction: column;
 }
 
 .cart .container h1 {
-    text-align: center;
+  text-align: center;
+  font-size: 24px;
 }
 
+.cart .finalData {
+    width: 90%;
+    margin-left: 1rem;
+    padding-top: .7rem;
 
+    border-top: 1px solid rgb(170, 170, 170);
 
+    flex-direction: column;
+    justify-content: space-around;
+}
 
+.cart .finalData .text {
+  margin-left: 1rem;
+}
 
+.cart .finalData .text h2 {
+  font-size: 18px;
+  font-weight: lighter;
+  letter-spacing: 2px;
+}
+
+.cart .finalData .text .totalText {
+  font-weight: bold;
+}
+
+.cart .finalData .buttonArea {
+  width: 100%;
+  height: 60px;
+  align-items: flex-end ;
+  justify-content: center;
+}
+
+.cart .finalData .buttonArea button {
+    width: 240px;
+    height: 40px;
+    margin: 0.5rem 0;
+  
+    background: var(--orange);
+    border: none;
+    border-radius: 15px;
+  
+    color: white;
+    font-family: var(--domine);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  
+    cursor: pointer;
+    outline: none;
+    transition: background 0.3s, color 0.3s;
+}
